@@ -13,6 +13,6 @@
         "facebook/php-sdk": "dev-master"
     },
     "autoload": {
-        "psr-0": {"Rocker\\FacebookLogin": ""}
+        "psr-0": {"Rocker\\FacebookLogin": "libs/"}
     }
 }

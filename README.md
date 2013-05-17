@@ -1,7 +1,7 @@
 
 # PHP-Rocker - Facebook login
 
-Install this package in your [Rocker application](https://github.com/victorjonsson/PHP-Rocker) and you will have an restful API that can authenticate users
+Install this package in your [Rocker application](https://github.com/victorjonsson/PHP-Rocker) and you will have a restful API that can authenticate users
 that has logged in using their facebook identities.
 
 *This installation walk through takes for granted that you have some prior knowledge about [composer](http://getcomposer.org)*
@@ -26,7 +26,7 @@ return array(
 
     'application.operations' => array(
         ...
-        'facebook/connect/' => '\\Rocker\\FacebookLogin\\Connect'
+        'facebook/connect' => '\\Rocker\\FacebookLogin\\Connect'
     ),
 
     'application.auth' => array(
@@ -62,12 +62,20 @@ javascript SDK
 <html>
 <head></head>
 <body>
-    <button" id="login-button">Login with FB</button>
+    <button id="login-button">Login with FB</button>
 
     <script src="/scripts/rocker.js"></script>
     <script src="//connect.facebook.net/en_US/all.js"></script>
 
     <script>
+
+    // Initiate FB
+    FB.init({
+        appId      : FB_APP_ID,
+        status     : true,
+        cookie     : false,
+        oauth      : false,
+    });
 
     // Instantiate the Rocker server
     var rocker = new Rocker('https://api.mywebsite.com/');
@@ -76,12 +84,12 @@ javascript SDK
 
         // Connect user
         rocker.request({
-            path : 'facebook/login?access_token='+FB.getAccessToken(),
+            path : 'facebook/connect?access_token='+FB.getAccessToken(),
             method : 'POST',
             onComplete : function(status, json, http) {
 
                 // set facebook auth data
-                rocker.auth = 'facebook '+FB.getAuthResponse().userID+':'FB.getAccessToken();
+                rocker.auth = 'facebook '+FB.getAuthResponse().userID+':'+FB.getAccessToken();
 
                 // From here on you can access any operation that requires authentication
             }
@@ -89,7 +97,7 @@ javascript SDK
 
     };
 
-    // When user click on login button
+    // When user clicks on login button
     document.getElementById('login-button').onclick = function() {
 
         // Check login status
@@ -104,9 +112,8 @@ javascript SDK
                         onFacebookLogin();
                     }
                 }, {scope: 'email,user_birthday,user_location'});
-                }
+            }
         });
-
     };
 
     </script>
