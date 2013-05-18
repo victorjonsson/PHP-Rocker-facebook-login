@@ -74,7 +74,7 @@ javascript SDK
         appId      : FB_APP_ID,
         status     : true,
         cookie     : false,
-        oauth      : false,
+        oauth      : false
     });
 
     // Instantiate the Rocker server
