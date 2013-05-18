@@ -1,10 +1,10 @@
 {
     "name": "rocker/facebook-login",
     "description": "Package that makes it possible to authenticate against a PHP-Rocker application using facebook (https://github.com/victorjonsson/PHP-Rocker)",
-    "minimum-stability": "dev",
+    "minimum-stability": "1.0.3",
     "keywords" : ["REST", "restful", "http", "webservice", "api"],
     "license" : "MIT",
-    "version" : "1.0.2",
+    "version" : "1.0.3",
     "authors": [{
         "name": "Victor Jonsson",
         "homepage" : "http://victorjonsson.se/",
