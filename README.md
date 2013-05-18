@@ -1,8 +1,8 @@
 
 # PHP-Rocker - Facebook login
 
-Install this package in your [Rocker application](https://github.com/victorjonsson/PHP-Rocker) and you will have a restful API that can authenticate users
-that has logged in using their facebook identities.
+Install this package in your [Rocker application](https://github.com/victorjonsson/PHP-Rocker) and you will have a restful
+API that can authenticate users that has logged in using their facebook identities.
 
 *This installation walk through takes for granted that you have some prior knowledge about [composer](http://getcomposer.org)*
 
@@ -92,6 +92,9 @@ javascript SDK
                 rocker.auth = 'facebook '+FB.getAuthResponse().userID+':'+FB.getAccessToken();
 
                 // From here on you can access any operation that requires authentication
+                rocker.me(function(rockerUser) {
+                    console.log(rockerUser);
+                });
             }
         });
 
