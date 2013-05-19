@@ -11,7 +11,7 @@ Here you can read more about [how to get started](https://github.com/victorjonss
 
 ### 2) Add the facebook login package
 
-Add `"rocker/facebook-login" : "1.*"` to the application requirements in *composer.json* and call `composer update` in
+Add `"rocker/facebook-login" : "1.*"` to the application requirements in *composer.json* and run `composer update` in
 the console.
 
 ### 3) Edit config.php
