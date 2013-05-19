@@ -75,7 +75,11 @@ class Connect extends AbstractOperation {
                 return new OperationResponse(200, $userArray);
 
             } catch(DuplicationException $e) {
-                return new OperationResponse(400, array('error'=>'E-mail of facebook user is already registered'));
+                // E-mail of facebook user is already registered on another user
+                $user = $userFactory->load($facebookData['email']);
+                $this->connectUser($user, $facebookData, $config, $userFactory);
+                $userArray = $server->applyFilter('user.array', $user->toArray(), $db, $cache);
+                return new OperationResponse(200, $userArray);
             }
         }
     }
