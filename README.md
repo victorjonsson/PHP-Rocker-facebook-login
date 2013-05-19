@@ -1,4 +1,3 @@
-
 # PHP-Rocker - Facebook login
 
 Install this package in your [Rocker application](https://github.com/victorjonsson/PHP-Rocker) and you will have a restful
@@ -12,7 +11,7 @@ Here you can read more about [how to get started](https://github.com/victorjonss
 
 ### 2) Add the facebook login package
 
-Add `"rocker/facebook-login" : "1.0.3"` to the application requirements in *composer.json* and call `composer update` in
+Add `"rocker/facebook-login" : "1.*"` to the application requirements in *composer.json* and call `composer update` in
 the console.
 
 ### 3) Edit config.php
